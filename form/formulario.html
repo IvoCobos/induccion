@@ -1,0 +1,88 @@
+<head>
+    <title>Botones de formulario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="w3-container" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+        <div class="w3-card-4 w3-dark-grey " style="width:40%">
+
+            <div class="w3-container w3-center">
+                <h3>Formulario de ejemplo</h3>
+                <div class="w3-left">
+                    <div>
+                        <input type="text" name="" id="name" placeholder="Nombre">
+                    </div>
+                    &nbsp;
+                    <div>
+                        <select name="city" id="city" style="width: 100%;">
+                            <option value="Quito">Quito</option>
+                            <option value="Guayaquil">Guayaquil</option>
+                            <option value="Cuenca">Cuenca</option>
+                            <option value="Springfield">Springfield</option>
+                        </select>
+                    </div>
+                    &nbsp;
+                    <div id="select">
+                        <input class="w3-radio" type="radio" value="yes" id="yes">
+                        <label>Si</label>
+                        <input class="w3-radio" type="radio" value="no" id="no">
+                        <label>No</label>
+                    </div>
+                    <div class="w3-section">
+                        <button class="w3-button w3-green" type="submit" onclick="save()">Guardar <i class="fa fa-arrow-right"></i></button>
+
+                    </div>
+                    &nbsp;
+                </div>
+
+            </div>
+            <table class="w3-table w3-striped w3-border" id="dataTable" style="text-align: center;">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Seleccion</th>
+                    <th>Si/No</th>
+                </tr>
+            </thead>
+            <tbody id="data_table">
+
+            </tbody>
+            
+            </table>
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function save(){
+   
+   var _nom = document.getElementById("name").value;
+   var _cit = document.getElementById("city").value;
+   var _sel = document.getElementById("select").value;
+
+   var fila="<tr><td>"+_nom+"</td><td>"+_cit +"</td><td>"+_sel +"</td></tr>";
+
+   var btn = document.createElement("TR");
+      btn.innerHTML=fila;
+   document.getElementById("data_table").appendChild(btn);
+
+   function Idgenerate(longitud){
+    let id ='';
+    const caracteres = 'ABCDEFGHILMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#_-$%^&*';
+    for(let i=0; i<longitud; i++){
+        id += caracteres.charAt(Math.floor(Math.random()*caracteres.length))
+    }
+    return id
+   }
+   console.log(Idgenerate(12));
+}
+
+
+</script>
+
+</html>
