@@ -1,0 +1,16 @@
+{
+  "name": "romanos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "numeros.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^28.1.0",
+    "yest": "^0.0.1"
+  }
+}
