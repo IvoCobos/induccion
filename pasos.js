@@ -1,3 +1,4 @@
+//contar la cantidad de pasos que debo dar dentro de un array para moverme de un numero a otro
 function camino(array, ini, end) {
     let left_right = [];
     let right_left =[];
