@@ -5,9 +5,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body style="background-color: pale-blue;">
     <div class="w3-container" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
-        <div class="w3-card-4 w3-dark-grey ">
+        <div class="w3-card-4 w3-blue ">
 
             <div class="w3-container w3-center">
                 <h3>Formulario de ejemplo</h3>
@@ -26,11 +26,12 @@
                     </div>
                     &nbsp;
                     <div id="select">
-                        <input class="w3-radio" type="radio" value="yes" name="select"> Si
-                        <input class="w3-radio" type="radio" value="no" name="select"> No
+                        <input class="w3-radio" type="radio" value="Si" name="check" id="1"> Si
+                        <input class="w3-radio" type="radio" value="No" name="check" id="2"> No
                     </div>
                     <div class="w3-section">
-                        <button class="w3-button w3-green" type="submit" onclick="save()">Guardar <i class="fa fa-arrow-right"></i></button>
+                        <button class="w3-button w3-green" type="submit" onclick="save()">Guardar <i
+                                class="fa fa-arrow-right"></i></button>
 
                     </div>
                     &nbsp;
@@ -39,17 +40,16 @@
             </div>
             <table class="w3-table w3-striped w3-border" id="dataTable" style="text-align: center;">
                 <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Seleccion</th>
-                    <th>Si/No</th>
-                    <th>Editar</th>
-                </tr>
-            </thead>
-            <tbody id="data_table">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Seleccion</th>
+                        <th>Si/No</th>
+                    </tr>
+                </thead>
+                <tbody id="data_table">
 
-            </tbody>
-            
+                </tbody>
+
             </table>
 
         </div>
@@ -58,30 +58,43 @@
 </body>
 
 <script>
-    function save(){
-   
-   var _nom = document.getElementById("name").value;
-   var _cit = document.getElementById("city").value;
-   var _sel = document.getElementById("select").value;
+    function save() {
 
-   var fila="<tr><td>"+_nom+"</td><td>"+_cit +"</td><td>"+_sel +"</td></tr>"+0+"</td></tr>";
+        var _nom = document.getElementById("name").value;
+        var _cit = document.getElementById("city").value;
+        var _sel = document.querySelector('input[name="check"]:checked').value;
+        var edit = "<button>Editar</button>";
+        
+        if(_sel == "No"){
+            _sel = edit;
+        }
+        
+        var fila = "<tr><td>" + _nom + "</td><td>" + _cit + "</td><td>" + _sel + "</td></tr>";
 
-   var btn = document.createElement("TR");
-      btn.innerHTML=fila;
-   document.getElementById("data_table").appendChild(btn);
+        var btn = document.createElement("TR");
+        btn.innerHTML = fila;
+        document.getElementById("data_table").appendChild(btn);
 
-   function Idgenerate(longitud){
-    let id ='';
-    const caracteres = 'ABCDEFGHILMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+';
-    for(let i=0; i<longitud; i++){
-        id += caracteres.charAt(Math.floor(Math.random()*caracteres.length))
+        function Idgenerate(longitud) {
+            let id = '';
+            const caracteres = 'ABCDEFGHILMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+';
+            for (let i = 0; i < longitud; i++) {
+                id += caracteres.charAt(Math.floor(Math.random() * caracteres.length))
+            }
+            return id
+        }
+        console.log(Idgenerate(12));
     }
-    return id
-   }
-   console.log(Idgenerate(12));
-}
 
 
 </script>
 
 </html>
+
+<style>
+    body {
+        background-color: palegoldenrod;
+    }
+</style>
+
+ingresar un numero entero real positivo y tranformar a numeros romanos
