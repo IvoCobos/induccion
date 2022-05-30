@@ -17,11 +17,13 @@
                         <div class="w3-center">
                             <h5 style="margin-top: 7px">Nombre</h5>
                             <h5 style="margin-top: 35px">Cuidad</h5>
+                            <h5 style="">Usuario Nuevo?</h5>
                         </div>
                     </div>
                     <div class="w3-threequarter">
                         <div class="w3-threequarter">
-                            <input class="w3-input border-int" type="text" name="" id="name" placeholder="Nombre" style="width:100%;">
+                            <input class="w3-input border-int" type="text" name="" id="name" placeholder="Nombre"
+                                style="width:100%;">
                             <div>&nbsp;</div>
 
                             <select class="w3-select border-int" name="city" id="city" style="width: 100%;">
@@ -30,6 +32,11 @@
                                 <option value="Cuenca">Cuenca</option>
                                 <option value="Springfield">Springfield</option>
                             </select>
+                            <div>&nbsp;</div>
+                            <div class="radio">
+                            <input class="w3-radio" type="radio" value="Si" name="check" id="1"> Si
+                            <input class="w3-radio" type="radio" value="No" name="check" id="2"> No
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -37,8 +44,7 @@
                 <div class="w3-third"> &nbsp;</div>
 
                 <div class="w3-third">
-                    <input class="w3-radio" type="radio" value="Si" name="check" id="1"> Si
-                    <input class="w3-radio" type="radio" value="No" name="check" id="2"> No
+
                     <div class="w3-section">
                         <button class="w3-button w3-green border-int" type="submit" onclick="save()">Guardar <i
                                 class="fa fa-arrow-right"></i></button>
@@ -113,22 +119,30 @@
         background-color: #0AA1DD;
         border-radius: 15px;
     }
-    .border{
+
+    .border {
         border-radius: 15px;
     }
-    .border-int{
+
+    .border-int {
         border-radius: 6px;
-    }
-    #button{
-        border-radius: 6px;
-    }
-    .w3-table{
-        color: #fff;
-    }
-    .w3-table{
-        text-align: center !important;
     }
 
+    #button {
+        border-radius: 6px;
+    }
+
+    .w3-table {
+        color: #fff;
+    }
+
+    .w3-table {
+        text-align: center !important;
+    }
+    .radio{
+        margin-left: -87px;
+        margin-top: -7px;
+    }
 </style>
 
 </html>
