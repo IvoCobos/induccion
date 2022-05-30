@@ -1,3 +1,5 @@
+<html>
+
 <head>
     <title>Botones de formulario</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -5,53 +7,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body style="background-color: pale-blue;">
+<body>
     <div class="w3-container" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
-        <div class="w3-card-4 w3-blue ">
-
+        <div class="w3-card-4">
             <div class="w3-container w3-center">
                 <h3>Formulario de ejemplo</h3>
-                <div class="w3-left">
-                    <div>
-                        <input type="text" name="" id="name" placeholder="Nombre">
+                <div class="w3-row">
+                    <div class="w3-quarter">
+                        <div class="w3-center">
+                            <h5 style="margin-top: 7px">Nombre</h5>
+                            <h5 style="margin-top: 35px">Cuidad</h5>
+                        </div>
                     </div>
-                    &nbsp;
-                    <div>
-                        <select name="city" id="city" style="width: 100%;">
-                            <option value="Quito">Quito</option>
-                            <option value="Guayaquil">Guayaquil</option>
-                            <option value="Cuenca">Cuenca</option>
-                            <option value="Springfield">Springfield</option>
-                        </select>
+                    <div class="w3-threequarter">
+                        <div class="w3-threequarter">
+                            <input class="w3-input border-int" type="text" name="" id="name" placeholder="Nombre" style="width:100%;">
+                            <div>&nbsp;</div>
+
+                            <select class="w3-select border-int" name="city" id="city" style="width: 100%;">
+                                <option value="Quito">Quito</option>
+                                <option value="Guayaquil">Guayaquil</option>
+                                <option value="Cuenca">Cuenca</option>
+                                <option value="Springfield">Springfield</option>
+                            </select>
+                        </div>
                     </div>
-                    &nbsp;
-                    <div id="select">
-                        <input class="w3-radio" type="radio" value="Si" name="check" id="1"> Si
-                        <input class="w3-radio" type="radio" value="No" name="check" id="2"> No
-                    </div>
+                </div>
+
+                <div class="w3-third"> &nbsp;</div>
+
+                <div class="w3-third">
+                    <input class="w3-radio" type="radio" value="Si" name="check" id="1"> Si
+                    <input class="w3-radio" type="radio" value="No" name="check" id="2"> No
                     <div class="w3-section">
-                        <button class="w3-button w3-green" type="submit" onclick="save()">Guardar <i
+                        <button class="w3-button w3-green border-int" type="submit" onclick="save()">Guardar <i
                                 class="fa fa-arrow-right"></i></button>
 
                     </div>
                     &nbsp;
                 </div>
+                <div class="w3-third"> &nbsp;</div>
 
             </div>
-            <table class="w3-table w3-striped w3-border" id="dataTable" style="text-align: center;">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Seleccion</th>
-                        <th>Si/No</th>
-                    </tr>
-                </thead>
-                <tbody id="data_table">
+            <footer class="w3-container w3-blue border">
+                <table class="w3-table w3-blue w3-bordered w3-hoverable" id="dataTable" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Seleccion</th>
+                            <th>Si/No</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data_table">
 
-                </tbody>
-
-            </table>
-
+                    </tbody>
+                </table>
+            </footer>
         </div>
     </div>
 
@@ -64,11 +75,11 @@
         var _cit = document.getElementById("city").value;
         var _sel = document.querySelector('input[name="check"]:checked').value;
         var edit = "<button>Editar</button>";
-        
-        if(_sel == "No"){
+
+        if (_sel == "No") {
             _sel = edit;
         }
-        
+
         var fila = "<tr><td>" + _nom + "</td><td>" + _cit + "</td><td>" + _sel + "</td></tr>";
 
         var btn = document.createElement("TR");
@@ -93,6 +104,31 @@
 
 <style>
     body {
-        background-color: palegoldenrod;
+        background-color: #E8F9FD;
     }
+
+    .w3-card-4 {
+        width: 370px;
+        color: #fff;
+        background-color: #0AA1DD;
+        border-radius: 15px;
+    }
+    .border{
+        border-radius: 15px;
+    }
+    .border-int{
+        border-radius: 6px;
+    }
+    #button{
+        border-radius: 6px;
+    }
+    .w3-table{
+        color: #fff;
+    }
+    .w3-table{
+        text-align: center !important;
+    }
+
 </style>
+
+</html>
