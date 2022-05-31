@@ -13,15 +13,16 @@
             <div class="w3-container w3-center">
                 <h3>Formulario de ejemplo</h3>
                 <div class="w3-row">
-                    <div class="w3-quarter">
-                        <div class="w3-center">
-                            <h5 style="margin-top: 7px; text-align: left;">Nombre</h5>
-                            <h5 style="margin-top: 35px; text-align: left;">Cuidad</h5>
+                    <div class="w3-half">
+                        <div class="w3-half">&nbsp;</div>
+                        <div class="w3-center w3-half text">
+                            <h5 style="margin-top: 7px; text-align: left;">Nombre:</h5>
+                            <h5 style="margin-top: 35px; text-align: left;">Cuidad:</h5>
                             <h5 style="text-align: left;">Usuario Nuevo?</h5>
                         </div>
                     </div>
-                    <div class="w3-threequarter">
-                        <div class="w3-threequarter">
+                    <div class="w3-half">
+                        <div class="w3-threequarter box">
                             <input class="w3-input border-int" type="text" name="" id="name" placeholder="Nombre"
                                 style="width:100%;">
                             <div>&nbsp;</div>
@@ -56,7 +57,7 @@
 
             </div>
             <footer class="w3-container w3-blue border">
-                <table class="w3-table w3-blue w3-bordered w3-hoverable" id="dataTable" style="text-align: center;">
+                <table class="w3-table w3-hoverable" id="dataTable">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -136,12 +137,20 @@
         color: #fff;
     }
 
-    .w3-table {
-        text-align: center !important;
-    }
     .radio{
-        margin-left: -87px;
+        margin-left: -25px;
         margin-top: -7px;
+    }
+    .text{
+        margin-left: -20px;
+    }
+    .box{
+        margin-left: -25px;
+    }
+    #dataTable{
+        text-align: center !important;
+        margin-bottom: 10px;
+        background-color: #0AA1DD;
     }
 </style>
 
