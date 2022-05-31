@@ -1,0 +1,358 @@
+<html>
+<title>Filter Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+    <div class="w3-panel w3-blue size">
+        <div class="w3-third">
+            <input class="w3-input w3-border-0 content" id="inputSearch" type="text" onkeyup="search()">
+        </div>
+        <div class="w3-third">
+            <select class="w3-select content select-table-filter" name="option" data-table="order-table">
+                <option value="">Todos</option>
+                <option value="Tokyo">Tokyo</option>
+                <option value="New York">New York</option>
+                <option value="Edinburgh">Edinburgh</option>
+                <option value="San Francisco">San Francisco</option>
+                <option value="London">London</option>
+
+            </select>
+        </div>
+        <div class="w3-third">
+            <input class="w3-input w3-border content" type="text">
+            <span class="icon"><i class="fa fa-search"></i></span>
+        </div>
+    </div>
+
+    <div class="w3-container">
+        &nbsp;
+    </div>
+
+    <div class="w3-container principal">
+
+        <div class="w3-card-4 w3-blue" style="width: 90%;">
+
+            <div class="w3-container w3-center">
+
+                <div class="w3-container principal">
+                    <table id="dataTable" class="w3-table w3-striped w3-border order-table">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0, 'str')" class="pointer">Name</th>
+                                <th onclick="sortTable(1, 'str')" class="pointer">Position</th>
+                                <th>Office</th>
+                                <th onclick="sortTable(2, 'int')" class="pointer">Age</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011-04-25</td>
+                                <td>$320,800</td>
+                            </tr>
+                            <tr>
+                                <td>Garrett Winters</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td>63</td>
+                                <td>2011-07-25</td>
+                                <td>$170,750</td>
+                            </tr>
+                            <tr>
+                                <td>Ashton Cox</td>
+                                <td>Junior Technical Author</td>
+                                <td>San Francisco</td>
+                                <td>66</td>
+                                <td>2009-01-12</td>
+                                <td>$86,000</td>
+                            </tr>
+                            <tr>
+                                <td>Cedric Kelly</td>
+                                <td>Senior Javascript Developer</td>
+                                <td>Edinburgh</td>
+                                <td>22</td>
+                                <td>2012-03-29</td>
+                                <td>$433,060</td>
+                            </tr>
+                            <tr>
+                                <td>Airi Satou</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td>33</td>
+                                <td>2008-11-28</td>
+                                <td>$162,700</td>
+                            </tr>
+                            <tr>
+                                <td>Brielle Williamson</td>
+                                <td>Integration Specialist</td>
+                                <td>New York</td>
+                                <td>61</td>
+                                <td>2012-12-02</td>
+                                <td>$372,000</td>
+                            </tr>
+                            <tr>
+                                <td>Herrod Chandler</td>
+                                <td>Sales Assistant</td>
+                                <td>San Francisco</td>
+                                <td>59</td>
+                                <td>2012-08-06</td>
+                                <td>$137,500</td>
+                            </tr>
+                            <tr>
+                                <td>Jennifer Chang</td>
+                                <td>Regional Director</td>
+                                <td>Singapore</td>
+                                <td>28</td>
+                                <td>2010-11-14</td>
+                                <td>$357,650</td>
+                            </tr>
+                            <tr>
+                                <td>Brenden Wagner</td>
+                                <td>Software Engineer</td>
+                                <td>San Francisco</td>
+                                <td>28</td>
+                                <td>2011-06-07</td>
+                                <td>$206,850</td>
+                            </tr>
+                            <tr>
+                                <td>Fiona Green</td>
+                                <td>Chief Operating Officer (COO)</td>
+                                <td>San Francisco</td>
+                                <td>48</td>
+                                <td>2010-03-11</td>
+                                <td>$850,000</td>
+                            </tr>
+                            <tr>
+                                <td>Shou Itou</td>
+                                <td>Regional Marketing</td>
+                                <td>Tokyo</td>
+                                <td>20</td>
+                                <td>2011-08-14</td>
+                                <td>$163,000</td>
+                            </tr>
+                            <tr>
+                                <td>Michelle House</td>
+                                <td>Integration Specialist</td>
+                                <td>Sydney</td>
+                                <td>37</td>
+                                <td>2011-06-02</td>
+                                <td>$95,400</td>
+                            </tr>
+                            <tr>
+                                <td>Suki Burks</td>
+                                <td>Developer</td>
+                                <td>London</td>
+                                <td>53</td>
+                                <td>2009-10-22</td>
+                                <td>$114,500</td>
+                            </tr>
+                            <tr>
+                                <td>Prescott Bartlett</td>
+                                <td>Technical Author</td>
+                                <td>London</td>
+                                <td>27</td>
+                                <td>2011-05-07</td>
+                                <td>$145,000</td>
+                            </tr>
+                            <tr>
+                                <td>Gavin Cortez</td>
+                                <td>Team Leader</td>
+                                <td>San Francisco</td>
+                                <td>22</td>
+                                <td>2008-10-26</td>
+                                <td>$235,500</td>
+                            </tr>
+                            <tr>
+                                <td>Martena Mccray</td>
+                                <td>Post-Sales support</td>
+                                <td>Edinburgh</td>
+                                <td>46</td>
+                                <td>2011-03-09</td>
+                                <td>$324,050</td>
+                            </tr>
+                            <tr>
+                                <td>Unity Butler</td>
+                                <td>Marketing Designer</td>
+                                <td>San Francisco</td>
+                                <td>47</td>
+                                <td>2009-12-09</td>
+                                <td>$85,675</td>
+                            </tr>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    //Bucar en tiempo real dentro de la tabla
+    function search() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("inputSearch");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("dataTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+
+            if (td) {
+
+                txtValue = td.textContent || td.innerText;
+
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+
+                    tr[i].style.display = "";
+
+                } else {
+
+                    tr[i].style.display = "none";
+
+                }
+
+            }
+        }
+    }
+//filtrado ascendete y descendente en la tabla
+    function sortTable(n, type) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+
+        table = document.getElementById("dataTable");
+        switching = true;
+        dir = "asc";
+        while (switching) {
+
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                if (dir == "asc") {
+                    if ((type == "str" && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) || (type == "int" && parseFloat(x.innerHTML) > parseFloat(y.innerHTML))) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if ((type == "str" && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) || (type == "int" && parseFloat(x.innerHTML) < parseFloat(y.innerHTML))) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                switchcount++;
+            } else {
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+    }
+//Filtrar por select en la tabla
+    var TableFilter = (function (Arr) {
+
+        var _input;
+        var _select;
+
+        function _onInputEvent(e) {
+            _input = e.target;
+            var tables = document.getElementsByClassName(_input.getAttribute("data-table"));
+            Arr.forEach.call(tables, function (table) {
+                Arr.forEach.call(table.tBodies, function (tbody) {
+                    Arr.forEach.call(tbody.rows, _filter);
+                });
+            });
+        }
+
+        function _onSelectEvent(e) {
+            _select = e.target;
+            var tables = document.getElementsByClassName(_select.getAttribute("data-table"));
+            Arr.forEach.call(tables, function (table) {
+                Arr.forEach.call(table.tBodies, function (tbody) {
+                    Arr.forEach.call(tbody.rows, _filterSelect);
+                });
+            });
+        }
+
+        function _filterSelect(row) {
+
+            var text_select = row.textContent.toLowerCase(), val_select = _select.options[_select.selectedIndex].value.toLowerCase();
+            row.style.display = text_select.indexOf(val_select) === -1 ? "none" : "table-row";
+
+        }
+
+        return {
+            init: function () {
+                var inputs = document.getElementsByClassName("light-table-filter");
+                var selects = document.getElementsByClassName("select-table-filter");
+                Arr.forEach.call(inputs, function (input) {
+                    input.oninput = _onInputEvent;
+                });
+                Arr.forEach.call(selects, function (select) {
+                    select.onchange = _onSelectEvent;
+                });
+            }
+        };
+    })(Array.prototype);
+
+    document.addEventListener("readystatechange", function () {
+        if (document.readyState === "complete") {
+            TableFilter.init();
+        }
+    });
+
+
+</script>
+<style>
+    .principal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .content {
+        margin-top: 15px;
+        width: 60%;
+        margin-left: 75px;
+    }
+
+    .icon {
+        position: relative;
+        top: -28px;
+        color: gray;
+        left: 300px;
+    }
+
+    .size {
+        position: relative;
+        width: 88%;
+        left: 88px;
+    }
+
+    .pointer {
+        cursor: pointer;
+    }
+
+    .order-table {
+        position: static;
+    }
+</style>
+
+</html>
