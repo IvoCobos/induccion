@@ -6,25 +6,24 @@
 
 <body>
 
-    <div class="w3-panel w3-blue size">
-        <div class="w3-third">
-            <input class="w3-input w3-border-0 content" id="inputSearch" type="text" onkeyup="search()">
+    <div class="w3-panel w3-blue">
+        <div class="w3-half second">
+            <input class="w3-input w3-border-0 content" id="inputSearch" type="text" placeholder="Buscar">
         </div>
-        <div class="w3-third">
-            <select class="w3-select content select-table-filter" name="option" data-table="order-table">
-                <option value="">Todos</option>
-                <option value="Tokyo">Tokyo</option>
-                <option value="New York">New York</option>
-                <option value="Edinburgh">Edinburgh</option>
-                <option value="San Francisco">San Francisco</option>
-                <option value="London">London</option>
+        <div class="w3-half second">
+            <select id="col-select-id" class="w3-select content select-table-filter" name="option"
+                data-table="order-table">
+                <option value="all">Todos</option>
+                <option value="name">Name</option>
+                <option value="position">Position</option>
+                <option value="office">Office</option>
+                <option value="age">Age</option>
 
+                <option value="salary">Salary</option>
             </select>
+            <button id="searchButton" class="w3-button w3-teal" onclick="search()"><i class="fa fa-search"></i></button>
         </div>
-        <div class="w3-third">
-            <input class="w3-input w3-border content" type="text">
-            <span class="icon"><i class="fa fa-search"></i></span>
-        </div>
+
     </div>
 
     <div class="w3-container">
@@ -32,160 +31,23 @@
     </div>
 
     <div class="w3-container principal">
-
         <div class="w3-card-4 w3-blue" style="width: 90%;">
-
-            <div class="w3-container w3-center">
-
+            <div class="w3-container">
                 <div class="w3-container principal">
-                    <table id="dataTable" class="w3-table w3-striped w3-border order-table">
+                    <table id="dataTable" class="w3-table order-table">
                         <thead>
                             <tr>
                                 <th onclick="sortTable(0, 'str')" class="pointer">Name</th>
                                 <th onclick="sortTable(1, 'str')" class="pointer">Position</th>
                                 <th>Office</th>
                                 <th onclick="sortTable(2, 'int')" class="pointer">Age</th>
-                                <th>Start date</th>
                                 <th>Salary</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td>San Francisco</td>
-                                <td>66</td>
-                                <td>2009-01-12</td>
-                                <td>$86,000</td>
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-                                <td>Edinburgh</td>
-                                <td>22</td>
-                                <td>2012-03-29</td>
-                                <td>$433,060</td>
-                            </tr>
-                            <tr>
-                                <td>Airi Satou</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>33</td>
-                                <td>2008-11-28</td>
-                                <td>$162,700</td>
-                            </tr>
-                            <tr>
-                                <td>Brielle Williamson</td>
-                                <td>Integration Specialist</td>
-                                <td>New York</td>
-                                <td>61</td>
-                                <td>2012-12-02</td>
-                                <td>$372,000</td>
-                            </tr>
-                            <tr>
-                                <td>Herrod Chandler</td>
-                                <td>Sales Assistant</td>
-                                <td>San Francisco</td>
-                                <td>59</td>
-                                <td>2012-08-06</td>
-                                <td>$137,500</td>
-                            </tr>
-                            <tr>
-                                <td>Jennifer Chang</td>
-                                <td>Regional Director</td>
-                                <td>Singapore</td>
-                                <td>28</td>
-                                <td>2010-11-14</td>
-                                <td>$357,650</td>
-                            </tr>
-                            <tr>
-                                <td>Brenden Wagner</td>
-                                <td>Software Engineer</td>
-                                <td>San Francisco</td>
-                                <td>28</td>
-                                <td>2011-06-07</td>
-                                <td>$206,850</td>
-                            </tr>
-                            <tr>
-                                <td>Fiona Green</td>
-                                <td>Chief Operating Officer (COO)</td>
-                                <td>San Francisco</td>
-                                <td>48</td>
-                                <td>2010-03-11</td>
-                                <td>$850,000</td>
-                            </tr>
-                            <tr>
-                                <td>Shou Itou</td>
-                                <td>Regional Marketing</td>
-                                <td>Tokyo</td>
-                                <td>20</td>
-                                <td>2011-08-14</td>
-                                <td>$163,000</td>
-                            </tr>
-                            <tr>
-                                <td>Michelle House</td>
-                                <td>Integration Specialist</td>
-                                <td>Sydney</td>
-                                <td>37</td>
-                                <td>2011-06-02</td>
-                                <td>$95,400</td>
-                            </tr>
-                            <tr>
-                                <td>Suki Burks</td>
-                                <td>Developer</td>
-                                <td>London</td>
-                                <td>53</td>
-                                <td>2009-10-22</td>
-                                <td>$114,500</td>
-                            </tr>
-                            <tr>
-                                <td>Prescott Bartlett</td>
-                                <td>Technical Author</td>
-                                <td>London</td>
-                                <td>27</td>
-                                <td>2011-05-07</td>
-                                <td>$145,000</td>
-                            </tr>
-                            <tr>
-                                <td>Gavin Cortez</td>
-                                <td>Team Leader</td>
-                                <td>San Francisco</td>
-                                <td>22</td>
-                                <td>2008-10-26</td>
-                                <td>$235,500</td>
-                            </tr>
-                            <tr>
-                                <td>Martena Mccray</td>
-                                <td>Post-Sales support</td>
-                                <td>Edinburgh</td>
-                                <td>46</td>
-                                <td>2011-03-09</td>
-                                <td>$324,050</td>
-                            </tr>
-                            <tr>
-                                <td>Unity Butler</td>
-                                <td>Marketing Designer</td>
-                                <td>San Francisco</td>
-                                <td>47</td>
-                                <td>2009-12-09</td>
-                                <td>$85,675</td>
-                            </tr>
+
+                        <tbody class="font" id="users">
+
+                        </tbody>
                     </table>
 
                 </div>
@@ -197,35 +59,249 @@
 
 </body>
 <script>
-    //Bucar en tiempo real dentro de la tabla
+    //json data
+    var data = [
+        {
+            "id": 1,
+            "name": "Dale Jenkins",
+            "position": "Junior Technical Author",
+            "office": "London",
+            "age": 95,
+            "start_date": "2022-01-01T06:29:48.418Z",
+            "salary": "$3835.67"
+        },
+        {
+            "id": 2,
+            "name": "Kent Mueller",
+            "position": "Integration Specialist",
+            "office": "London",
+            "age": 12,
+            "start_date": "2021-06-22T21:03:39.686Z",
+            "salary": "$2295.37"
+        },
+        {
+            "id": 3,
+            "name": "Mamie Walker",
+            "position": "Data Coordiator",
+            "office": "New York",
+            "age": 72,
+            "start_date": "2021-07-30T01:04:56.147Z",
+            "salary": "$4104.47"
+        },
+        {
+            "id": 4,
+            "name": "Tammy Rolfson",
+            "position": "System Architecture",
+            "office": "San Francisco",
+            "age": 13,
+            "start_date": "2021-07-20T23:26:33.779Z",
+            "salary": "$1835.52"
+        },
+        {
+            "id": 5,
+            "name": "Dr. Sadie Strosin",
+            "position": "Technical Support Engineer",
+            "office": "San Francisco",
+            "age": 30,
+            "start_date": "2021-10-16T22:03:57.756Z",
+            "salary": "$4069.85"
+        },
+        {
+            "id": 6,
+            "name": "Herman Gutmann",
+            "position": "Accountant",
+            "office": "San Francisco",
+            "age": 71,
+            "start_date": "2021-12-25T23:12:07.119Z",
+            "salary": "$1830.70"
+        },
+        {
+            "id": 7,
+            "name": "Ethel Grady",
+            "position": "Customer Service Rep",
+            "office": "London",
+            "age": 79,
+            "start_date": "2021-09-15T07:40:06.341Z",
+            "salary": "$3575.58"
+        },
+        {
+            "id": 8,
+            "name": "Ruben Gislason",
+            "position": "Web Designer",
+            "office": "New York",
+            "age": 11,
+            "start_date": "2022-01-15T20:30:13.758Z",
+            "salary": "$2844.35"
+        },
+        {
+            "id": 9,
+            "name": "Melissa Stamm",
+            "position": "Accountant",
+            "office": "London",
+            "age": 28,
+            "start_date": "2022-05-06T00:20:14.371Z",
+            "salary": "$2349.71"
+        },
+        {
+            "id": 10,
+            "name": "Annie Kohler",
+            "position": "System Architecture",
+            "office": "San Francisco",
+            "age": 30,
+            "start_date": "2021-06-20T02:20:20.422Z",
+            "salary": "$4234.60"
+        },
+        {
+            "id": 11,
+            "name": "Jacqueline Vandervort MD",
+            "position": "Technical Support Engineer",
+            "office": "San Francisco",
+            "age": 54,
+            "start_date": "2021-06-10T23:54:32.472Z",
+            "salary": "$4355.62"
+        },
+        {
+            "id": 12,
+            "name": "Al Rice",
+            "position": "Integration Specialist",
+            "office": "San Francisco",
+            "age": 80,
+            "start_date": "2022-03-10T08:06:21.497Z",
+            "salary": "$4827.82"
+        },
+        {
+            "id": 13,
+            "name": "Tracey Okuneva",
+            "position": "Junior Technical Author",
+            "office": "San Francisco",
+            "age": 83,
+            "start_date": "2021-08-02T21:52:54.654Z",
+            "salary": "$4416.80"
+        },
+        {
+            "id": 14,
+            "name": "Alicia Christiansen",
+            "position": "Accountant",
+            "office": "Edinburgh",
+            "age": 18,
+            "start_date": "2021-09-09T03:37:38.739Z",
+            "salary": "$4109.27"
+        },
+        {
+            "id": 15,
+            "name": "Carole Prohaska V",
+            "position": "Accountant",
+            "office": "San Francisco",
+            "age": 57,
+            "start_date": "2021-08-21T17:00:51.870Z",
+            "salary": "$3066.66"
+        },
+        {
+            "id": 16,
+            "name": "Luther Rutherford",
+            "position": "System Architecture",
+            "office": "Edinburgh",
+            "age": 17,
+            "start_date": "2021-12-07T16:25:55.011Z",
+            "salary": "$3761.56"
+        },
+        {
+            "id": 17,
+            "name": "Paula Konopelski",
+            "position": "Software Developer",
+            "office": "San Francisco",
+            "age": 75,
+            "start_date": "2021-08-25T20:58:28.040Z",
+            "salary": "$3185.94"
+        },
+        {
+            "id": 18,
+            "name": "Raul Abbott",
+            "position": "System Architecture",
+            "office": "New York",
+            "age": 61,
+            "start_date": "2022-05-23T07:40:27.487Z",
+            "salary": "$4204.62"
+        },
+        {
+            "id": 19,
+            "name": "Lola Farrell",
+            "position": "Junior Technical Author",
+            "office": "Edinburgh",
+            "age": 28,
+            "start_date": "2021-06-13T07:30:38.723Z",
+            "salary": "$1531.76"
+        },
+        {
+            "id": 20,
+            "name": "Monica Rogahn",
+            "position": "Software Engineer",
+            "office": "London",
+            "age": 22,
+            "start_date": "2022-05-06T03:34:42.588Z",
+            "salary": "$1429.94"
+        }
+    ];
+    var usuarios = document.getElementById("users");
+    function renderTable(data) {
+        usuarios.innerHTML = "";
+        data.forEach((user) => {
+            var tr = document.createElement("tr");
+            var name = document.createElement("td");
+            name.innerText = user.name;
+            var position = document.createElement("td");
+            position.innerText = user.position;
+            var office = document.createElement("td");
+            office.innerText = user.office;
+            var age = document.createElement("td");
+            age.innerText = user.age;
+
+            var salary = document.createElement("td");
+            salary.innerText = user.salary;
+            tr.appendChild(name);
+            tr.appendChild(position);
+            tr.appendChild(office);
+            tr.appendChild(age);
+
+            tr.appendChild(salary);
+            usuarios.appendChild(tr)
+        })
+    }
+    renderTable(data)
+
+    //Bucar en la tabla
     function search() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("inputSearch");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("dataTable");
-        tr = table.getElementsByTagName("tr");
-
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-
-            if (td) {
-
-                txtValue = td.textContent || td.innerText;
-
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-
-                    tr[i].style.display = "";
-
-                } else {
-
-                    tr[i].style.display = "none";
-
+        var input_search = document.getElementById("inputSearch");
+        var select_id = document.getElementById("col-select-id");
+        var select_col = select_id.options[select_id.selectedIndex].value.toLowerCase()
+        var input_value = input_search.value.toLowerCase();
+        // console.log(select_col);
+        renderTable(
+            data.filter((user) => {
+                if (select_col == "name") {
+                    return user.name.toLowerCase().includes(input_value);
+                }
+                if (select_col === "position") {
+                    return user.position.toLowerCase().includes(input_value);
+                }
+                if (select_col === "office") {
+                    return user.office.toLowerCase().includes(input_value);
+                }
+                if (select_col === "age") {
+                    return String(user.age).includes(input_value);
                 }
 
-            }
-        }
+                if (select_col === "salary") {
+                    return user.salary.includes(input_value);
+                }
+                const all = [user.name, user.position, user.office, user.age, user.salary].join();
+                return all.includes(input_value)
+
+            })
+        )
+
     }
-//filtrado ascendete y descendente en la tabla
+    //filtrado ascendete y descendente en la tabla
     function sortTable(n, type) {
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 
@@ -264,58 +340,6 @@
             }
         }
     }
-//Filtrar por select en la tabla
-    var TableFilter = (function (Arr) {
-
-        var _input;
-        var _select;
-
-        function _onInputEvent(e) {
-            _input = e.target;
-            var tables = document.getElementsByClassName(_input.getAttribute("data-table"));
-            Arr.forEach.call(tables, function (table) {
-                Arr.forEach.call(table.tBodies, function (tbody) {
-                    Arr.forEach.call(tbody.rows, _filter);
-                });
-            });
-        }
-
-        function _onSelectEvent(e) {
-            _select = e.target;
-            var tables = document.getElementsByClassName(_select.getAttribute("data-table"));
-            Arr.forEach.call(tables, function (table) {
-                Arr.forEach.call(table.tBodies, function (tbody) {
-                    Arr.forEach.call(tbody.rows, _filterSelect);
-                });
-            });
-        }
-
-        function _filterSelect(row) {
-
-            var text_select = row.textContent.toLowerCase(), val_select = _select.options[_select.selectedIndex].value.toLowerCase();
-            row.style.display = text_select.indexOf(val_select) === -1 ? "none" : "table-row";
-
-        }
-
-        return {
-            init: function () {
-                var inputs = document.getElementsByClassName("light-table-filter");
-                var selects = document.getElementsByClassName("select-table-filter");
-                Arr.forEach.call(inputs, function (input) {
-                    input.oninput = _onInputEvent;
-                });
-                Arr.forEach.call(selects, function (select) {
-                    select.onchange = _onSelectEvent;
-                });
-            }
-        };
-    })(Array.prototype);
-
-    document.addEventListener("readystatechange", function () {
-        if (document.readyState === "complete") {
-            TableFilter.init();
-        }
-    });
 
 
 </script>
@@ -324,13 +348,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     .content {
         margin-top: 15px;
         width: 60%;
-        margin-left: 75px;
+        margin-left: 120px;
+        margin-bottom: 15px;
     }
 
     .icon {
@@ -340,18 +366,36 @@
         left: 300px;
     }
 
-    .size {
-        position: relative;
-        width: 88%;
-        left: 88px;
-    }
-
     .pointer {
         cursor: pointer;
     }
 
     .order-table {
         position: static;
+    }
+
+    tr {
+        background: #fff;
+        border: 1px solid gray;
+    }
+
+    .font {
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .w3-panel {
+        width: 88%;
+        margin: 0 auto;
+    }
+
+    .w3-button {
+        padding: 13px;
+
+    }
+
+    .second {
+        display: flex;
+        align-items: center;
     }
 </style>
 
