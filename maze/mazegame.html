@@ -24,6 +24,7 @@
                                 class="bi bi-arrow-left-circle-fill"></i></a>
                         <a href="#" class="btn btn-primary" onclick="derecha()"><i
                                 class="bi bi-arrow-right-circle-fill"></i></a>
+                                <a href="#" class="btn btn-primary" onclick="automatic()"><i class="bi bi-play-fill"></i></a>
                     </div>
                     <div class="col"></div>
                 </div>
@@ -52,45 +53,6 @@
 
 </body>
 <script>
-
-    // var maze = [
-    //     {
-    //         "n1": 1,
-    //         "n2": "X",
-    //         "n3": "X",
-    //         "n4": "X",
-    //         "n5": "X"
-    //     },
-    //     {
-    //         "n1": 1,
-    //         "n2": "X",
-    //         "n3": "X",
-    //         "n4": "X",
-    //         "n5": "X"
-    //     },
-    //     {
-    //         "n1": 1,
-    //         "n2": 1,
-    //         "n3": 1,
-    //         "n4": 1,
-    //         "n5": 1
-    //     },
-    //     {
-    //         "n1": "X",
-    //         "n2": "X",
-    //         "n3": 1,
-    //         "n4": "X",
-    //         "n5": 1
-    //     },
-    //     {
-    //         "n1": "X",
-    //         "n2": "X",
-    //         "n3": 1,
-    //         "n4": "X",
-    //         "n5": 1
-    //     }
-    // ];
-
     var maze = new Array();
 
     maze[0] = new Array(1, "X", "X", "X", "X");
@@ -109,7 +71,7 @@
                 var node = document.createElement("td");
                 if (currentPosition.y == positionY && currentPosition.x == positionX) {
                     node.style.color = "red";
-                    node.innerText = "Y";
+                    node.innerText = "▒";
                 } else {
                     node.innerText = value;
                 }
@@ -148,7 +110,19 @@
         }
 
     }
-
+    function automatic(){
+        let auto = setInterval(()=>{
+            derecha();
+            const xLen = maze[0].length - 1;
+            const yLen = maze.length - 1;
+            console.log("walk")
+            if(currentPosition.x === xLen && currentPosition.y === yLen){
+                clearInterval(auto);
+            }
+        },500);
+    }
+console.log(maze.length-1)
+console.log(maze[0].length-1)
 </script>
 <style>
     .centrado {
