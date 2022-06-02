@@ -1,0 +1,154 @@
+<html>
+
+<head>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+        <title>Laberinto</title>
+    </head>
+
+<body>
+    <!-- card botones -->
+    <div class="centrado">
+        <h5 class="card-header" style="text-align: center;" >Laberinto</h5>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col" style="text-align: center;">
+                        <a href="#" class="btn btn-primary" onclick="izquierda()"><i
+                                class="bi bi-arrow-left-circle-fill"></i></a>
+                                <a href="#" class="btn btn-primary" onclick="derecha()"><i
+                                    class="bi bi-arrow-right-circle-fill"></i></a>
+                    </div>
+                    <div class="col"></div> 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    &nbsp;
+    <!-- laberinto -->
+    <div class="centrado">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col" style="margin-left: 150px;">
+                    <table id="dataTable" class="tabla centrado">
+                        <tbody class="font" id="maze">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+
+    var data = [
+        {
+            "id": 1,
+            "n1": 1,
+            "n2": "X",
+            "n3": "X",
+            "n4": "X",
+            "n5": "X"
+        },
+        {
+            "id": 2,
+            "n1": 1,
+            "n2": "X",
+            "n3": "X",
+            "n4": "X",
+            "n5": "X"
+        },
+        {
+            "id": 3,
+            "n1": 1,
+            "n2": 1,
+            "n3": 1,
+            "n4": 1,
+            "n5": 1
+        },
+        {
+            "id": 4,
+            "n1": "X",
+            "n2": "X",
+            "n3": 1,
+            "n4": "X",
+            "n5": 1
+        },
+        {
+            "id": 5,
+            "n1": "X",
+            "n2": "X",
+            "n3": 1,
+            "n4": "X",
+            "n5": 1
+        }
+    ];
+    var usuarios = document.getElementById("maze");
+    function renderTable(data) {
+        usuarios.innerHTML = "";
+        data.forEach((col) => {
+            var tr = document.createElement("tr");
+            var n1 = document.createElement("td");
+            n1.innerText = col.n1;
+            var n2 = document.createElement("td");
+            n2.innerText = col.n2;
+            var n3 = document.createElement("td");
+            n3.innerText = col.n3;
+            var n4 = document.createElement("td");
+            n4.innerText = col.n4;
+
+            var n5 = document.createElement("td");
+            n5.innerText = col.n5;
+            tr.appendChild(n1);
+            tr.appendChild(n2);
+            tr.appendChild(n3);
+            tr.appendChild(n4);
+
+            tr.appendChild(n5);
+            usuarios.appendChild(tr)
+        })
+    }
+    renderTable(data);
+
+    function derecha() {
+        let inicio = document.getElementById("dataTable")
+
+    }
+
+    function izquierda() {
+        console.log("lo mismo de antes")
+    }
+
+</script>
+<style>
+    .centrado {
+        align-items: center;
+    }
+
+    .tabla {
+        border: 1px solid rgb(12, 12, 12);
+        width: 220px;
+        text-align: center;
+        border-collapse: collapse;
+        font-size: 2.5em;
+        font-family: 'Times New Roman', Times, serif;
+        background-color: azure;
+    }
+    th, td{
+        border: 1px solid rgb(12, 12, 12);
+
+    }
+</style>
+
+</html>
