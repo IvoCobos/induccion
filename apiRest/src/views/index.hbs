@@ -34,9 +34,9 @@
                             </select>
                             <div>&nbsp;</div>
                             <div class="radio">
-                            <input class="w3-radio" type="radio" value="Si" name="check" id="1"> Si
-                            <input class="w3-radio" type="radio" value="No" name="check" id="2"> No
-                        </div>
+                                <input class="w3-radio" type="radio" value="Si" name="check" id="1"> Si
+                                <input class="w3-radio" type="radio" value="No" name="check" id="2"> No
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,6 +80,8 @@
         var _nom = document.getElementById("name").value;
         var _cit = document.getElementById("city").value;
         var _sel = document.querySelector('input[name="check"]:checked').value;
+
+
         var edit = "<button>Editar</button>";
 
         if (_sel == "No") {
@@ -102,6 +104,27 @@
         }
         console.log(Idgenerate(12));
     }
+    var usuarios = document.getElementById("data_table");
+    function renderTable(data) {
+        usuarios.innerHTML = "";
+        data.forEach((user) => {
+            var tr = document.createElement("tr");
+            var name = document.createElement("td");
+            name.innerText = user.name;
+            var city = document.createElement("td");
+            city.innerHTML = user.city;
+            var select = document.createElement("td");
+            select.innerHTML = user.select;
+
+            tr.appendChild(name);
+            tr.appendChild(city);
+            tr.appendChild(select);
+            usuarios.appendChild(tr)
+        })
+    }
+    renderTable([])
+    fetch("http://localhost:3000/api/users").then(res => res.json()).then(res => renderTable(res));
+    let response = await fetch("http://localhost:3000/api/users",{method:'post'})
 
 
 </script>
@@ -136,17 +159,20 @@
         color: #fff;
     }
 
-    .radio{
+    .radio {
         margin-left: -25px;
         margin-top: -7px;
     }
-    .text{
+
+    .text {
         margin-left: -20px;
     }
-    .box{
+
+    .box {
         margin-left: -25px;
     }
-    #dataTable{
+
+    #dataTable {
         text-align: center !important;
         margin-bottom: 10px;
         background-color: #0AA1DD;
