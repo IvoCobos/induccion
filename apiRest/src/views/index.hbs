@@ -46,7 +46,7 @@
                 <div class="w3-third">
 
                     <div class="w3-section">
-                        <button class="w3-button w3-green border-int" type="submit" onclick="save()">Guardar <i
+                        <button class="w3-button w3-green border-int" id="buttonSave" type="button">Guardar <i
                                 class="fa fa-arrow-right"></i></button>
 
                     </div>
@@ -61,7 +61,8 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Cuidad</th>
-                            <th>Nuevo Usuario</th>
+                            <th>Usuario</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="data_table">
@@ -75,35 +76,32 @@
 </body>
 
 <script>
-    function save() {
-
+    async function save() {
+        console.log("hata aca funciona");
         var _nom = document.getElementById("name").value;
         var _cit = document.getElementById("city").value;
         var _sel = document.querySelector('input[name="check"]:checked').value;
 
 
-        var edit = "<button>Editar</button>";
-
-        if (_sel == "No") {
-            _sel = edit;
+        if (_sel == "Si") {
+            _sel = true;
         }
-
-        var fila = "<tr><td>" + _nom + "</td><td>" + _cit + "</td><td>" + _sel + "</td></tr>";
-
-        var btn = document.createElement("TR");
-        btn.innerHTML = fila;
-        document.getElementById("data_table").appendChild(btn);
-
-        function Idgenerate(longitud) {
-            let id = '';
-            const caracteres = 'ABCDEFGHILMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+';
-            for (let i = 0; i < longitud; i++) {
-                id += caracteres.charAt(Math.floor(Math.random() * caracteres.length))
-            }
-            return id
+        else {
+            _sel = false;
         }
-        console.log(Idgenerate(12));
+        let response = await fetch("http://localhost:3000/api/users", {
+            method: 'post', headers: { 'Content-Type': 'application/json;charset=utf-8' },
+            body: JSON.stringify({
+                name: _nom,
+                city: _cit,
+                select: _sel
+            })
+        })
     }
+    window.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById("buttonSave").addEventListener("click", save)
+        console.log('DOM fully loaded and parsed');
+    });
     var usuarios = document.getElementById("data_table");
     function renderTable(data) {
         usuarios.innerHTML = "";
@@ -115,16 +113,21 @@
             city.innerHTML = user.city;
             var select = document.createElement("td");
             select.innerHTML = user.select;
+            var actions = document.createElement("td");
+            actions.innerHTML = "<button disabled> Edit </button>";
 
             tr.appendChild(name);
             tr.appendChild(city);
             tr.appendChild(select);
+            tr.appendChild(actions);
             usuarios.appendChild(tr)
         })
     }
     renderTable([])
-    fetch("http://localhost:3000/api/users").then(res => res.json()).then(res => renderTable(res));
-    let response = await fetch("http://localhost:3000/api/users",{method:'post'})
+    fetch("http://localhost:3000/api/users").then(res => res.json()).then(res => {
+        renderTable(res.data)
+    });
+
 
 
 </script>
