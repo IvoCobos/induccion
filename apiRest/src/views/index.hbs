@@ -82,7 +82,6 @@
         var _cit = document.getElementById("city").value;
         var _sel = document.querySelector('input[name="check"]:checked').value;
 
-
         if (_sel == "Si") {
             _sel = true;
         }
@@ -106,15 +105,23 @@
     function renderTable(data) {
         usuarios.innerHTML = "";
         data.forEach((user) => {
+            let editable = true;
             var tr = document.createElement("tr");
             var name = document.createElement("td");
             name.innerText = user.name;
+            if (editable)
+                (name.innerHTML = "<input value=" + user.name + " />");
             var city = document.createElement("td");
             city.innerHTML = user.city;
+            if (editable)
+                (city.innerHTML = "<select value=" + user.city + " />");
             var select = document.createElement("td");
             select.innerHTML = user.select;
             var actions = document.createElement("td");
-            actions.innerHTML = "<button disabled> Edit </button>";
+            if (user.select)
+                actions.innerHTML = "<button onclick=> Edit </button>";
+            else
+                actions.innerHTML = "<button disabled> Edit </button>";
 
             tr.appendChild(name);
             tr.appendChild(city);
@@ -127,8 +134,6 @@
     fetch("http://localhost:3000/api/users").then(res => res.json()).then(res => {
         renderTable(res.data)
     });
-
-
 
 </script>
 
