@@ -1,0 +1,157 @@
+<html>
+
+<head>
+    <title>Botones de formulario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="w3-container" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+        <div class="w3-card-4">
+            <div class="w3-container w3-center">
+                <h3>Formulario de ejemplo</h3>
+                <div class="w3-row">
+                    <div class="w3-half">
+                        <div class="w3-half">&nbsp;</div>
+                        <div class="w3-center w3-half text">
+                            <h5 style="margin-top: 7px; text-align: left;">Nombre:</h5>
+                            <h5 style="margin-top: 35px; text-align: left;">Cuidad:</h5>
+                            <h5 style="text-align: left;">Usuario Nuevo?</h5>
+                        </div>
+                    </div>
+                    <div class="w3-half">
+                        <div class="w3-threequarter box">
+                            <input class="w3-input border-int" type="text" name="" id="name" placeholder="Nombre"
+                                style="width:100%;">
+                            <div>&nbsp;</div>
+
+                            <select class="w3-select border-int" name="city" id="city" style="width: 100%;">
+                                <option value="Quito">Quito</option>
+                                <option value="Guayaquil">Guayaquil</option>
+                                <option value="Cuenca">Cuenca</option>
+                                <option value="Springfield">Springfield</option>
+                            </select>
+                            <div>&nbsp;</div>
+                            <div class="radio">
+                            <input class="w3-radio" type="radio" value="Si" name="check" id="1"> Si
+                            <input class="w3-radio" type="radio" value="No" name="check" id="2"> No
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-third"> &nbsp;</div>
+
+                <div class="w3-third">
+
+                    <div class="w3-section">
+                        <button class="w3-button w3-green border-int" type="submit" onclick="save()">Guardar <i
+                                class="fa fa-arrow-right"></i></button>
+
+                    </div>
+                    &nbsp;
+                </div>
+                <div class="w3-third"> &nbsp;</div>
+
+            </div>
+            <footer class="w3-container w3-blue border">
+                <table class="w3-table w3-hoverable" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Cuidad</th>
+                            <th>Nuevo Usuario</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data_table">
+
+                    </tbody>
+                </table>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function save() {
+
+        var _nom = document.getElementById("name").value;
+        var _cit = document.getElementById("city").value;
+        var _sel = document.querySelector('input[name="check"]:checked').value;
+        var edit = "<button>Editar</button>";
+
+        if (_sel == "No") {
+            _sel = edit;
+        }
+
+        var fila = "<tr><td>" + _nom + "</td><td>" + _cit + "</td><td>" + _sel + "</td></tr>";
+
+        var btn = document.createElement("TR");
+        btn.innerHTML = fila;
+        document.getElementById("data_table").appendChild(btn);
+
+        function Idgenerate(longitud) {
+            let id = '';
+            const caracteres = 'ABCDEFGHILMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+';
+            for (let i = 0; i < longitud; i++) {
+                id += caracteres.charAt(Math.floor(Math.random() * caracteres.length))
+            }
+            return id
+        }
+        console.log(Idgenerate(12));
+    }
+
+
+</script>
+
+</html>
+
+<style>
+    body {
+        background-color: #E8F9FD;
+    }
+
+    .w3-card-4 {
+        width: 370px;
+        color: #fff;
+        background-color: #0AA1DD;
+        border-radius: 15px;
+    }
+
+    .border {
+        border-radius: 15px;
+    }
+
+    .border-int {
+        border-radius: 6px;
+    }
+
+    #button {
+        border-radius: 6px;
+    }
+
+    .w3-table {
+        color: #fff;
+    }
+
+    .radio{
+        margin-left: -25px;
+        margin-top: -7px;
+    }
+    .text{
+        margin-left: -20px;
+    }
+    .box{
+        margin-left: -25px;
+    }
+    #dataTable{
+        text-align: center !important;
+        margin-bottom: 10px;
+        background-color: #0AA1DD;
+    }
+</style>
+
+</html>

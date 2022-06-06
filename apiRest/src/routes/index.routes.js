@@ -2,8 +2,12 @@ import { Router } from 'express';
 
 const router = Router();
 
-app.get('/', (req, res)=>{
-    res.send('Aqui estamos!')
+router.get('/', (req, res) => {
+    res.render('index');
 });
 
-export default router
+router.get('/about', (req, res) => {
+    res.send("About");
+});
+
+export default router;
