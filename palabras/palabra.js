@@ -11,7 +11,6 @@ function letra(s) {
 
         ans += parseInt(diff / 2);
         i = j;
-        
     }    
     // var total = []
     // total.push(ans);
