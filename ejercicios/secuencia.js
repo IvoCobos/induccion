@@ -25,11 +25,11 @@
 function generate(n) {
     if (n % 4 == 0) {
         var n1 = (n + 2) / 2;
-        console.log(n1)
+        console.log(n1);
     }
     if (n % 4 == 1) {
         var n2 = (n + 3) / 2;
-        console.log(n2);
+        console.log(Math.round(n2));
     }
     if (n % 4 == 2) {
         var n3 = (n + 4) / 2;
@@ -41,6 +41,8 @@ function generate(n) {
     }
 }
 
-generate(81239812739128371)
+generate(76)
 //43561820561586185
 //40619906369564188
+
+console.log(645902347634344324%4)
