@@ -21,21 +21,22 @@
 //     return Math.round(num / 2) + 1;
 // }
 // console.log(secuenci(76));
-function generate(n){
-    if( n%4== 0){
-        var n1=(n+2)/2;
+
+function generate(n) {
+    if (n % 4 == 0) {
+        var n1 = (n + 2) / 2;
         console.log(n1)
     }
-    if(n%4==1){
-        var n2 = (n+3)/2;
+    if (n % 4 == 1) {
+        var n2 = (n + 3) / 2;
         console.log(n2);
     }
-    if(n%4==2){
-        var n3 = (n+4)/2;
+    if (n % 4 == 2) {
+        var n3 = (n + 4) / 2;
         console.log(n3);
     }
-    if(n%4==3){
-        var n4=(n+5)/2;
+    if (n % 4 == 3) {
+        var n4 = (n + 5) / 2;
         console.log(n4);
     }
 }
